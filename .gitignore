@@ -5,3 +5,4 @@ bot/__pycache__/
 # Ignore log files
 *.log
 
+*.json
