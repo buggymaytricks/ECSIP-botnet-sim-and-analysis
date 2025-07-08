@@ -1,6 +1,6 @@
 # Ignore compiled Python files
 *.pyc
-__pycache__/
+bot/__pycache__/
 
 # Ignore log files
 *.log
