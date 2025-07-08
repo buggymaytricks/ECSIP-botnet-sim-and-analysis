@@ -1,0 +1,8 @@
+requests
+pynput
+pyperclip
+beautifulSoup4
+psutil
+paramiko
+pillow
+pycryptodome

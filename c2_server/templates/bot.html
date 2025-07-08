@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bot {{ bot_id }}</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: monospace;
+            font-size: 18px;
+        }
+        a {
+            color: #0f0;
+            text-decoration: none;
+        }
+        .box {
+            border: 1px solid #0f0;
+            margin: 10px auto;
+            padding: 12px;
+            width: 250px;
+            font-size: 16px;
+            border-radius: 6px;
+            box-shadow: 0 0 6px #0f0;
+            text-align: center;
+        }
+        .box:hover {
+            background-color: #020;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Choose Attack: {{ bot_id }}</h2>
+
+    <div class="container">
+        <div class="box"><a href="/bot/{{ bot_id }}/attack/port_scan">Port Scanner</a></div>
+        <div class="box"><a href="/bot/{{ bot_id }}/attack/net_scan">Network Scanner</a></div>
+        <div class="box"><a href="/ddos">DDoS</a></div>
+        <div class="box"><a href="/bot/{{ bot_id }}/attack/keylogger">Keylogger</a></div>
+        <div class="box"><a href="/bot/{{ bot_id }}/attack/bruteforce">Brute Force</a></div>
+        <div class="box"><a href="/bot/{{ bot_id }}/attack/stealer">Stealer</a></div>
+        <div class="box"><a href="/bot/{{ bot_id }}/attack/spyware">Spyware</a></div>
+    </div>
+
+    <div class="back-link">
+        <a href="/">← Back to Dashboard</a>
+    </div>
+</body>
+</html>

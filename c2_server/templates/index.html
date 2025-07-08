@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bot Dashboard</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: monospace;
+            font-size: 18px;
+        }
+        select, input[type="text"], input[type="submit"] {
+            background-color: #000;
+            color: #0f0;
+            border: 1px solid #0f0;
+        }
+        a {
+            color: #0f0;
+            text-decoration: none;
+        }
+        #status {
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: auto;
+            margin-top: 30px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #0f0;
+            text-align: center;
+        }
+        .online {
+            color: #00f;
+            font-weight: bold;
+        }
+        .offline {
+            color: red;
+        }
+        .top-right {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            border: 1px solid #0f0;
+            padding: 8px 12px;
+            border-radius: 5px;
+            box-shadow: 0 0 6px #0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-right">
+        <a href="/ddos">DDoS</a>
+    </div>
+
+    <h2 style="text-align:center;">Connected Bots</h2>
+
+    <table>
+        <tr>
+            <th>Bot ID</th>
+            <th>IP Address</th>
+            <th>Status</th>
+            <th>Whoami</th>
+            <th>Action</th>
+        </tr>
+        {% for bot in bots %}
+        <tr>
+            <td>{{ bot.id }}</td>
+            <td>{{ bot.ip }}</td>
+            <td class="{{ 'online' if bot.online else 'offline' }}">
+                {{ 'Online' if bot.online else 'Offline' }}
+            </td>
+            <td>{{ bot.get("whoami", "N/A") }}</td>
+            <td><a href="/bot/{{ bot.id }}">Control</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

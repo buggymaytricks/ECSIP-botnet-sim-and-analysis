@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ command }} Reports for {{ bot_id }}</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: monospace;
+            font-size: 18px;
+        }
+        #outputBox {
+            background: #000;
+            color: #0f0;
+            border: 1px solid #0f0;
+            padding: 10px;
+            width: 90%;
+            height: 800px;
+            overflow-y: auto;
+            margin: auto;
+            white-space: pre-wrap;
+            font-size: 18px;
+        }
+        #status {
+            text-align: center;
+            color: #0f0;
+        }
+        a {
+            color: #0f0;
+            text-decoration: none;
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-box {
+            width: 60%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #0f0;
+            border-radius: 10px;
+            box-shadow: 0 0 8px #0f0;
+            font-size: 16px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            background: #000;
+            color: #0f0;
+            border: 1px solid #0f0;
+        }
+        input[type="submit"] {
+            cursor: pointer;
+        }
+        button {
+            background-color: #0f0;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #090;
+        }
+    </style>
+    <script>
+        function fetchReport() {
+            fetch(`/api/report/{{ bot_id }}`)
+                .then(res => res.json())
+                .then(data => {
+                    const box = document.getElementById("outputBox");
+
+                    const filtered = data.filter(entry => entry.command.startsWith("{{ command }}"));
+
+                    // Clear and render new content
+                    box.innerHTML = "";
+                    filtered.slice().reverse().forEach(entry => {
+                        const block = document.createElement("div");
+                        block.textContent = `\n--- Report (Sent: ${entry.sent_at}, Received: ${entry.received_at}) ---\n${entry.output ?? '[!] No output returned.'}`;
+                        box.appendChild(block);
+                    });
+
+                    document.getElementById("status").textContent = "Logs updated at " + new Date().toUTCString();
+                })
+                .catch(() => {
+                    document.getElementById("status").textContent = "Error fetching report";
+                });
+        }
+
+        setInterval(fetchReport, 20000);
+        window.onload = fetchReport;
+    </script>
+</head>
+<body>
+    <div style="position: relative; text-align: center; margin-top: 20px;">
+        <h2 style="margin: 0;">Run Attack: {{ command }} on {{ bot_id }}</h2>
+
+        <a href="/bot/{{ bot_id }}/report/{{ command }}/download" target="_blank"
+        style="position: absolute; right: 5%; top: 0;">
+            <button style="padding: 5px 15px; font-size: 16px;">Save Report</button>
+        </a>
+    </div>
+
+    <form method="POST" class="form-box">
+        {% if command == "bruteforce" %}
+            <label>Service:</label>
+            <select name="service" required>
+                <option value="ssh">SSH</option>
+                <option value="ftp">FTP</option>
+                <option value="http">HTTP</option>
+            </select>
+
+            <div id="ipField">
+                <label>Target IP:</label>
+                <input type="text" name="ip" placeholder="10.0.0.1">
+            </div>
+
+            <div id="urlField" style="display:none;">
+                <label>Target URL:</label>
+                <input type="text" name="url" placeholder="http://target/login">
+            </div>
+
+            <label>Username:</label>
+            <input type="text" name="username" required>
+
+            <label>Wordlist Path:</label>
+            <input type="text" name="wordlist" required>
+            
+            <div id="userField" style="display:none;">
+                <label>Username Field:</label>
+                <input type="text" name="u_field" value="username">
+            </div>
+
+            <div id="passField" style="display:none;">
+                <label>Password Field:</label>
+                <input type="text" name="p_field" value="password">
+            </div>
+        {% elif command == "keylogger" %}
+            {% if running %}
+                <input type="submit" name="action" value="Stop Attack">
+            {% else %}
+                <input type="submit" name="action" value="Start Attack">
+            {% endif %}
+        {% endif %}
+
+        {% if command != "keylogger" %}
+            <input type="submit" value="Start Attack">
+        {% endif %}
+    </form>
+
+    <hr>
+
+    <h2>Reports for {{ bot_id }} → <code>{{ command }}</code></h2>
+
+    <div id="outputBox">Loading...</div>
+    <p id="status">Waiting for report...</p>
+
+    <div style="text-align:center;">
+        <a href="/bot/{{ bot_id }}">← Back to Bot</a>
+    </div>
+
+    <script>
+        const service = document.querySelector("select[name='service']");
+        const ipField = document.getElementById("ipField");
+        const urlField = document.getElementById("urlField");
+        const userField = document.getElementById("userField");
+        const passField = document.getElementById("passField");
+
+        if (service) {
+            service.addEventListener("change", () => {
+                if (service.value === "http") {
+                    ipField.style.display = "none";
+                    urlField.style.display = "block";
+                    userField.style.display = "block";
+                    passField.style.display = "block";
+                } else {
+                    ipField.style.display = "block";
+                    urlField.style.display = "none";
+                    userField.style.display = "none";
+                    passField.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

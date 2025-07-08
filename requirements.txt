@@ -1,0 +1,10 @@
+requests
+pynput
+pyperclip
+beautifulSoup4
+psutil
+paramiko
+pillow
+pycryptodome
+win32crypt
+Flask
