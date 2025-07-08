@@ -1,8 +1,7 @@
 # ECSIP-botnet-sim-and-analysis
 Basic Botnet-Simulation and Analysis
 
-Absolutely — here’s a **super short and clean `README.md`** version to get you going fast:
-
+# THIS IS GOING TO BE CHANGES SOON, DON'T WORRY 
 ````markdown
 # 🕷️ Modular Botnet Simulation
 
