@@ -1,7 +1,7 @@
 # ECSIP-botnet-sim-and-analysis
 Basic Botnet-Simulation and Analysis
 
-# THIS IS GOING TO BE CHANGES SOON, DON'T WORRY 
+# THIS IS GOING TO BE CHANGED SOON, DON'T WORRY 
 ````markdown
 # 🕷️ Modular Botnet Simulation
 
