@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Edu Company - Cybersecurity Education</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width .3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .animate-fade-in {
+            opacity: 1;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .glow {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+        
+        .glow:hover {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-shield-alt text-blue-500 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-gray-800">A Edu. Company</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-500 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="#free-courses" class="nav-link text-gray-700 hover:text-blue-500 px-3 py-2 text-sm font-medium">Free Courses</a>
+                    <a href="#paid-courses" class="nav-link text-gray-700 hover:text-blue-500 px-3 py-2 text-sm font-medium">Paid Courses</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-500 px-3 py-2 text-sm font-medium">About Us</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-500 px-3 py-2 text-sm font-medium">Contact</a>
+                    <a href="#free-courses" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300 transform hover:scale-105">Start Learning</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-900 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">Home</a>
+                <a href="#free-courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">Free Courses</a>
+                <a href="#paid-courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">Paid Courses</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">About Us</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">Contact</a>
+                <a href="#free-courses" class="block w-full bg-blue-500 text-white px-3 py-2 rounded-md text-base font-medium text-center mt-2">Start Learning</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient pt-24 pb-20 md:pt-32 md:pb-28 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">Secure Your Future in Cybersecurity</h1>
+                    <p class="text-xl md:text-2xl text-blue-100 mb-8">Master in-demand skills with our free and premium courses taught by industry experts.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#free-courses" class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg text-lg font-semibold text-center transition duration-300 transform hover:scale-105 glow">
+                            <i class="fas fa-lock-open mr-2"></i> Start Free Courses
+                        </a>
+                        <a href="#paid-courses" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-lg text-lg font-semibold text-center transition duration-300 transform hover:scale-105">
+                            <i class="fas fa-star mr-2"></i> Explore Premium
+                        </a>
+                    </div>
+                    <div class="mt-8 flex items-center">
+                        <div class="flex -space-x-2">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/women/12.jpg" alt="">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/women/45.jpg" alt="">
+                        </div>
+                        <p class="ml-4 text-blue-100">
+                            <span class="font-semibold">10,000+</span> students learning with us
+                        </p>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center fade-in">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cybersecurity" class="rounded-xl shadow-2xl w-full max-w-md floating">
+                        <div class="absolute -bottom-6 -left-6 bg-blue-500 rounded-lg p-4 shadow-lg">
+                            <div class="text-white">
+                                <p class="text-sm">New Course</p>
+                                <p class="font-bold">Ethical Hacking 101</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="bg-gray-100 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="p-4 fade-in">
+                    <i class="fas fa-user-shield text-blue-500 text-4xl mb-3"></i>
+                    <h3 class="text-xl font-bold text-gray-800">Expert Instructors</h3>
+                    <p class="text-gray-600">Industry professionals with real-world experience</p>
+                </div>
+                <div class="p-4 fade-in">
+                    <i class="fas fa-laptop-code text-blue-500 text-4xl mb-3"></i>
+                    <h3 class="text-xl font-bold text-gray-800">Hands-on Labs</h3>
+                    <p class="text-gray-600">Practical exercises to reinforce learning</p>
+                </div>
+                <div class="p-4 fade-in">
+                    <i class="fas fa-certificate text-blue-500 text-4xl mb-3"></i>
+                    <h3 class="text-xl font-bold text-gray-800">Certification Prep</h3>
+                    <p class="text-gray-600">Prepare for industry-recognized certifications</p>
+                </div>
+                <div class="p-4 fade-in">
+                    <i class="fas fa-headset text-blue-500 text-4xl mb-3"></i>
+                    <h3 class="text-xl font-bold text-gray-800">Community Support</h3>
+                    <p class="text-gray-600">Join our active learner community</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Courses Section -->
+    <section id="free-courses" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Start With Our Free Cybersecurity Courses</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Build your foundation with our free courses before advancing to premium content.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Course 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden course-card transition duration-300 fade-in">
+                    <div class="relative">
+                        <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cybersecurity Fundamentals">
+                        <div class="absolute top-2 right-2 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded">
+                            FREE
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Beginner</span>
+                            <span class="text-gray-500 text-sm ml-2">4.8 <i class="fas fa-star text-yellow-400"></i></span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Cybersecurity Fundamentals</h3>
+                        <p class="text-gray-600 mb-4">Learn the core concepts of cybersecurity including threats, vulnerabilities, and risk management.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-gray-400 mr-1"></i>
+                                <span class="text-sm text-gray-500">8 hours</span>
+                            </div>
+                            <a href="#" class="text-blue-500 hover:text-blue-700 font-medium">Enroll Now <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden course-card transition duration-300 fade-in">
+                    <div class="relative">
+                        <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Network Security">
+                        <div class="absolute top-2 right-2 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded">
+                            FREE
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded">Intermediate</span>
+                            <span class="text-gray-500 text-sm ml-2">4.7 <i class="fas fa-star text-yellow-400"></i></span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Network Security Essentials</h3>
+                        <p class="text-gray-600 mb-4">Understand network protocols, firewalls, and intrusion detection systems to protect networks.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-gray-400 mr-1"></i>
+                                <span class="text-sm text-gray-500">10 hours</span>
+                            </div>
+                            <a href="#" class="text-blue-500 hover:text-blue-700 font-medium">Enroll Now <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden course-card transition duration-300 fade-in">
+                    <div class="relative">
+                        <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1563206767-5b18f218e8f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Password Security">
+                        <div class="absolute top-2 right-2 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded">
+                            FREE
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Beginner</span>
+                            <span class="text-gray-500 text-sm ml-2">4.9 <i class="fas fa-star text-yellow-400"></i></span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Password Security & Management</h3>
+                        <p class="text-gray-600 mb-4">Learn best practices for creating and managing secure passwords to protect your accounts.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-gray-400 mr-1"></i>
+                                <span class="text-sm text-gray-500">5 hours</span>
+                            </div>
+                            <a href="#" class="text-blue-500 hover:text-blue-700 font-medium">Enroll Now <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in">
+                <a href="#" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-semibold transition duration-300 transform hover:scale-105">
+                    View All Free Courses <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Upgrade Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Ready to Take Your Skills to the Next Level?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Our premium courses offer deeper dives, hands-on labs, and certification preparation.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-xl shadow-md fade-in">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Certification Preparation</h3>
+                    <p class="text-gray-600">Our paid courses prepare you for industry-recognized certifications like CISSP, CEH, and Security+.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md fade-in">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Hands-on Labs</h3>
+                    <p class="text-gray-600">Access our virtual labs to practice real-world cybersecurity scenarios in a safe environment.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md fade-in">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Mentorship</h3>
+                    <p class="text-gray-600">Get personalized guidance from industry experts through our mentorship program.</p>
+                </div>
+            </div>
+            
+            <div class="text-center fade-in">
+                <a href="#paid-courses" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-semibold transition duration-300 transform hover:scale-105">
+                    Explore Premium Courses <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paid Courses Section -->
+    <section id="paid-courses" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Premium Cybersecurity Courses</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Invest in your future with our comprehensive paid courses.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Course 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden course-card transition duration-300 fade-in">
+                    <div class="relative">
+                        <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ethical Hacking">
+                        <div class="absolute top-2 right-2 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded">
+                            PREMIUM
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded">Advanced</span>
+                            <span class="text-gray-500 text-sm ml-2">4.9 <i class="fas fa-star text-yellow-400"></i></span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Certified Ethical Hacker</h3>
+                        <p class="text-gray-600 mb-4">Master penetration testing and vulnerability assessment techniques used by ethical hackers.</p>
+                        <div class="mb-4">
+                            <span class="text-2xl font-bold text-gray-800">$299</span>
+                            <span class="text-sm text-gray-500 line-through ml-2">$399</span>
+                        </div>
+                        <a href="#" class="block w-full bg-blue-500 hover:bg-blue-600 text-white text-center py-2 rounded-lg font-medium transition duration-300 transform hover:scale-105">
+                            Enroll Now <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Course 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden course-card transition duration-300 fade-in">
+                    <div class="relative">
+                        <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Security+">
+                        <div class="absolute top-2 right-2 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded">
+                            PREMIUM
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded">Intermediate</span>
+                            <span class="text-gray-500 text-sm ml-2">4.8 <i class="fas fa-star text-yellow-400"></i></span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">CompTIA Security+ Bootcamp</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive preparation for the Security+ certification exam with hands-on labs.</p>
+                        <div class="mb-4">
+                            <span class="text-2xl font-bold text-gray-800">$249</span>
+                            <span class="text-sm text-gray-500 line-through ml-2">$349</span>
+                        </div>
+                        <a href="#" class="block w-full bg-blue-500 hover:bg-blue-600 text-white text-center py-2 rounded-lg font-medium transition duration-300 transform hover:scale-105">
+                            Enroll Now <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Course 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden course-card transition duration-300 fade-in">
+                    <div class="relative">
+                        <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1563206767-5b18f218e8f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Cloud Security">
+                        <div class="absolute top-2 right-2 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded">
+                            PREMIUM
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded">Intermediate</span>
+                            <span class="text-gray-500 text-sm ml-2">4.7 <i class="fas fa-star text-yellow-400"></i></span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Cloud Security Professional</h3>
+                        <p class="text-gray-600 mb-4">Learn to secure cloud environments across AWS, Azure, and Google Cloud platforms.</p>
+                        <div class="mb-4">
+                            <span class="text-2xl font-bold text-gray-800">$349</span>
+                            <span class="text-sm text-gray-500 line-through ml-2">$449</span>
+                        </div>
+                        <a href="#" class="block w-full bg-blue-500 hover:bg-blue-600 text-white text-center py-2 rounded-lg font-medium transition duration-300 transform hover:scale-105">
+                            Enroll Now <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in">
+                <a href="#" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-semibold transition duration-300 transform hover:scale-105">
+                    View All Premium Courses <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What Our Students Say</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Hear from professionals who transformed their careers with A Edu Company.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md fade-in">
+                    <div class="flex items-center mb-4">
+                        <img class="w-12 h-12 rounded-full mr-4" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J.">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Sarah J.</h4>
+                            <p class="text-blue-500 text-sm">Security Analyst</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The Ethical Hacking course gave me practical skills that I use every day in my job. The labs were incredibly valuable for hands-on experience."</p>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md fade-in">
+                    <div class="flex items-center mb-4">
+                        <img class="w-12 h-12 rounded-full mr-4" src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael T.">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Michael T.</h4>
+                            <p class="text-blue-500 text-sm">IT Manager</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"After completing the Security+ Bootcamp, I passed my certification exam on the first try. The course material was comprehensive and well-structured."</p>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md fade-in">
+                    <div class="flex items-center mb-4">
+                        <img class="w-12 h-12 rounded-full mr-4" src="https://randomuser.me/api/portraits/women/67.jpg" alt="Priya K.">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Priya K.</h4>
+                            <p class="text-blue-500 text-sm">Cloud Security Engineer</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The Cloud Security course helped me transition from traditional IT to cloud security. The mentorship program was invaluable for career guidance."</p>
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star-half-alt text-yellow-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">About A Edu. Company</h2>
+                    <p class="text-gray-600 mb-6">Founded in 2018, A Edu. Company is a leading provider of cybersecurity education with a mission to bridge the global cybersecurity skills gap.</p>
+                    <p class="text-gray-600 mb-6">Our team of industry experts has trained over 15,000 professionals worldwide, helping them launch and advance their careers in cybersecurity.</p>
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Our Values</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                                <span class="text-gray-600">Practical, hands-on learning</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                                <span class="text-gray-600">Industry-relevant curriculum</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                                <span class="text-gray-600">Accessible to all skill levels</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-semibold transition duration-300 transform hover:scale-105">
+                        Contact Us <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="md:w-1/2 fade-in">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-blue-50 p-6 rounded-xl">
+                            <i class="fas fa-users text-blue-500 text-3xl mb-4"></i>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">15,000+</h3>
+                            <p class="text-gray-600">Students Trained</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-xl">
+                            <i class="fas fa-chalkboard-teacher text-blue-500 text-3xl mb-4"></i>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">25+</h3>
+                            <p class="text-gray-600">Industry Experts</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-xl">
+                            <i class="fas fa-certificate text-blue-500 text-3xl mb-4"></i>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">92%</h3>
+                            <p class="text-gray-600">Certification Pass Rate</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-xl">
+                            <i class="fas fa-globe text-blue-500 text-3xl mb-4"></i>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">50+</h3>
+                            <p class="text-gray-600">Countries Reached</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-blue-500 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Cybersecurity Journey?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">Join thousands of professionals who have transformed their careers with A Edu Company.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#free-courses" class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg text-lg font-semibold text-center transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-lock-open mr-2"></i> Start With Free Courses
+                </a>
+                <a href="#paid-courses" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-lg text-lg font-semibold text-center transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-star mr-2"></i> Explore Premium Courses
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Contact Us</h2>
+                    <p class="text-gray-600 mb-6">Have questions about our courses or need guidance on which path is right for you? Our team is here to help.</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-blue-500 mt-1 mr-4"></i>
+                            <div>
+                                <h3 class="font-bold text-gray-800">Email</h3>
+                                <p class="text-gray-600">info@A Edu. Company.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt text-blue-500 mt-1 mr-4"></i>
+                            <div>
+                                <h3 class="font-bold text-gray-800">Phone</h3>
+                                <p class="text-gray-600">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-blue-500 mt-1 mr-4"></i>
+                            <div>
+                                <h3 class="font-bold text-gray-800">Office</h3>
+                                <p class="text-gray-600">123 Security Ave, Suite 100<br>San Francisco, CA 94107</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-700 text-2xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700 text-2xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700 text-2xl">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-blue-500 hover:text-blue-700 text-2xl">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 fade-in">
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                                <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                                    <option>Course Inquiry</option>
+                                    <option>Technical Support</option>
+                                    <option>Partnership</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-semibold transition duration-300 transform hover:scale-105">
+                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-shield-alt text-blue-500 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold">A Edu. Company</span>
+                    </div>
+                    <p class="text-gray-400">Empowering the next generation of cybersecurity professionals through accessible, high-quality education.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Courses</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#free-courses" class="text-gray-400 hover:text-white">Free Courses</a></li>
+                        <li><a href="#paid-courses" class="text-gray-400 hover:text-white">Paid Courses</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Certification Prep</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Corporate Training</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Our Team</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 A Edu. Company. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                fadeInObserver.observe(element);
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        document.getElementById('mobile-menu').classList.add('hidden');
+                    }
+                });
+            });
+        });
+        
+        // Button hover effects
+        document.querySelectorAll('button, a').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                if (this.classList.contains('transform')) {
+                    this.classList.add('hover:scale-105');
+                }
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                if (this.classList.contains('transform')) {
+                    this.classList.remove('hover:scale-105');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
