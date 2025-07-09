@@ -38,11 +38,12 @@ This project simulates a **custom botnet** in a secure and fully isolated Virtua
 
 ```
 modular-botnet-simulation/
-├── bots/                # Linux and Windows bot clients
-│   ├── linux_bot/
-│   └── windows_bot/
-├── c2_dashboard/        # Flask-based C2 interface
-├── target_server/       # Flask server to simulate DDoS attack
+├── bot/                # Linux and Windows bot clients
+│   ├── bot.py
+│   ├── <all_modules>.py
+│   └── requirements.txt
+├── c2_server/           # Flask-based C2 interface
+├── target_site/         # Flask server to simulate DDoS attack
 ├── analysis/            # Wireshark logs, screenshots
 ├── docs/                # Scope, Report, Presentation (PDF)
 ├── requirements.txt
@@ -54,7 +55,7 @@ modular-botnet-simulation/
 ## 🚀 How to Run
 
 ### 1. Set Up the Virtual Lab
-- Configure host-only network in VirtualBox
+- Configure host-only network in Virtual Environment
 - Create VMs for:
   - Kali Linux (C2)
   - Debian/Ubuntu (Linux bots)
@@ -63,20 +64,20 @@ modular-botnet-simulation/
 
 ### 2. Start the C2 Server
 ```bash
-cd c2_dashboard
-python3 app.py
+cd c2_server
+python3 server.py
 ```
 
 ### 3. Launch Bot Clients
 ```bash
-cd bots/linux_bot
-python3 main.py
+cd bot/
+python3 bot.py
 ```
 (Repeat on each bot VM)
 
 ### 4. Use C2 Dashboard
 - Access dashboard via browser (`http://<C2-IP>:5000`)
-- View connected bots, send commands, and monitor responses
+- View connected bots, send commands, run modules and monitor responses
 
 ### 5. Analyze Traffic (Wireshark)
 - Filter packets by IP or protocol:
