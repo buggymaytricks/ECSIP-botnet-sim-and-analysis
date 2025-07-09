@@ -71,25 +71,22 @@ python3 server.py
 # In other terminal
 nano bot/bot.py
 # Edit the C2_URL and change the ip to your servers ip
-
+# Copy the complete bot folder in the infected machines
 ```
 
-### 2. On Windows Bot
-```bash
-git clone https://github.com/buggymaytricks/ECSIP-botnet-sim-and-analysis.git
-cd ECSIP-botnet-sim-and-analysis
-
-python3 server.py
+### 3. On Windows Bot
+```
+python3 bot.py
 ```
 
-### 3. Launch Bot Clients
+### 4. On Linux Bot
 ```bash
 cd bot/
 python3 bot.py
 ```
 (Repeat on each bot VM)
 
-### 4. Use C2 Dashboard
+### 5. Use C2 Dashboard
 - Access dashboard via browser (`http://<C2-IP>:5000`)
 - View connected bots, send commands, run modules and monitor responses
 
