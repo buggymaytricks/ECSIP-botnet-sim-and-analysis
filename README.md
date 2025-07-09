@@ -61,9 +61,24 @@ modular-botnet-simulation/
   - Windows VM (optional Windows bot)
   - Ubuntu server (target)
 
-### 2. Start the C2 Server
+## 2. On kali
 ```bash
+git clone https://github.com/buggymaytricks/ECSIP-botnet-sim-and-analysis.git
+cd ECSIP-botnet-sim-and-analysis
 cd c2_server
+pip3 install requirements.txt
+python3 server.py
+# In other terminal
+nano bot/bot.py
+# Edit the C2_URL and change the ip to your servers ip
+
+```
+
+### 2. On Windows Bot
+```bash
+git clone https://github.com/buggymaytricks/ECSIP-botnet-sim-and-analysis.git
+cd ECSIP-botnet-sim-and-analysis
+
 python3 server.py
 ```
 
