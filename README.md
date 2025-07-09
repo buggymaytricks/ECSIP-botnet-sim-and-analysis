@@ -88,7 +88,7 @@ python3 bot.py
 
 ## 🔍 Implemented Modules
 
-- `Keylogger`: Captures keystrokes (Linux only)
+- `Keylogger`: Captures keystrokes
 - `DoS`: HTTP flood on target server
 - `net_scan`: Scans the network in which the bot is connected and sends the hosts that are up. (Not accurate)
 - `port_scan`: Scans common ports on hosts that are up
