@@ -51,6 +51,20 @@ modular-botnet-simulation/
 
 ---
 
+## 🔍 Implemented Modules
+
+- `Keylogger`: Captures keystrokes
+- `DoS`: HTTP flood on target server
+- `net_scan`: Scans the network in which the bot is connected and sends the hosts that are up. (Not accurate)
+- `port_scan`: Scans common ports on hosts that are up
+- `brute_force`: Can perform bruteforce operations on SSH/FTP/HTTP
+- `stealer`: Steals known credentials from Linux-(Fails to steal browser creds), on Windows only steals browser creds only for chromium based browserss
+- `spyware`: Gets clipboard as well as captures screenshots
+
+---
+
+---
+
 ## 🚀 How to Run
 
 ### 1. Set Up the Virtual Lab
@@ -61,7 +75,7 @@ modular-botnet-simulation/
   - Windows VM (optional Windows bot)
   - Ubuntu server (target)
 
-## 2. On kali
+### 2. On kali
 ```bash
 git clone https://github.com/buggymaytricks/ECSIP-botnet-sim-and-analysis.git
 cd ECSIP-botnet-sim-and-analysis
@@ -71,7 +85,7 @@ python3 server.py
 # In other terminal
 nano bot/bot.py
 # Edit the C2_URL and change the ip to your servers ip
-# Copy the complete bot folder in the infected machines
+# Copy the complete bot folder in the bot machines
 ```
 
 ### 3. On Windows Bot
@@ -84,31 +98,16 @@ python3 bot.py
 cd bot/
 python3 bot.py
 ```
-(Repeat on each bot VM)
 
 ### 5. Use C2 Dashboard
 - Access dashboard via browser (`http://<C2-IP>:5000`)
 - View connected bots, send commands, run modules and monitor responses
 
-### 5. Analyze Traffic (Wireshark) IN PROGRESS
+### 6. Analyze Traffic (Wireshark) IN PROGRESS
 - Filter packets by IP or protocol:
   - `http.request`
   - `ip.addr == <bot-ip>`
 - Observe command traffic and DDoS flood patterns
-
----
-
-## 🔍 Implemented Modules
-
-- `Keylogger`: Captures keystrokes
-- `DoS`: HTTP flood on target server
-- `net_scan`: Scans the network in which the bot is connected and sends the hosts that are up. (Not accurate)
-- `port_scan`: Scans common ports on hosts that are up
-- `brute_force`: Can perform bruteforce operations on SSH/FTP/HTTP
-- `stealer`: Steals known credentials from Linux-(Fails to steal browser creds), on Windows only steals browser creds only for chromium based browserss
-- `spyware`: Gets clipboard as well as captures screenshots
-
----
 
 ## 📸 Screenshots (Add these) IN PROGRESS
 
