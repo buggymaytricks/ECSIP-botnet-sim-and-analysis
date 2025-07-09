@@ -43,7 +43,7 @@ modular-botnet-simulation/
 │   ├── <all_modules>.py
 │   └── requirements.txt
 ├── c2_server/           # Flask-based C2 interface
-├── target_site/         # Flask server to simulate DDoS attack
+├── dos_target/          # Flask server to simulate DDoS attack
 ├── analysis/            # Wireshark logs, screenshots
 ├── docs/                # Scope, Report, Presentation (PDF)
 ├── requirements.txt
@@ -79,7 +79,7 @@ python3 bot.py
 - Access dashboard via browser (`http://<C2-IP>:5000`)
 - View connected bots, send commands, run modules and monitor responses
 
-### 5. Analyze Traffic (Wireshark)
+### 5. Analyze Traffic (Wireshark) IN PROGRESS
 - Filter packets by IP or protocol:
   - `http.request`
   - `ip.addr == <bot-ip>`
@@ -89,15 +89,17 @@ python3 bot.py
 
 ## 🔍 Implemented Modules
 
-- `keylogger`: Captures keystrokes (Linux only)
-- `ddos`: HTTP flood on target server
-- `scan_ports`: Scans common ports on target
-- `brute_force` (optional): SSH credential attempts
-- `info`: System/user information collection
+- `Keylogger`: Captures keystrokes (Linux only)
+- `DoS`: HTTP flood on target server
+- `net_scan`: Scans the network in which the bot is connected and sends the hosts that are up. (Not accurate)
+- `port_scan`: Scans common ports on hosts that are up
+- `brute_force`: Can perform bruteforce operations on SSH/FTP/HTTP
+- `stealer`: Steals known credentials from Linux-(Fails to steal browser creds), on Windows only steals browser creds only for chromium based browserss
+- `spyware`: Gets clipboard as well as captures screenshots
 
 ---
 
-## 📸 Screenshots (Add these)
+## 📸 Screenshots (Add these) IN PROGRESS
 
 - C2 Dashboard interface with bots listed
 - Terminal output from bots (e.g., `whoami`, `uname`)
@@ -109,7 +111,6 @@ python3 bot.py
 ## ⚠️ Known Limitations
 
 - Communication not encrypted (no HTTPS)
-- Limited Windows testing (AV interference)
 - Static polling interval (no randomized beaconing)
 - No real propagation
 
