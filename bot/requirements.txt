@@ -6,3 +6,4 @@ psutil
 paramiko
 pillow
 pycryptodome
+win32crypt
