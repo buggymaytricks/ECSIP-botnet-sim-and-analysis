@@ -15,7 +15,7 @@ This project simulates a **custom botnet** in a secure and fully isolated Virtua
 
 - Simulate botnet behavior using modular bots
 - Implement C2 dashboard for remote task control
-- Explore malware modules (keylogger, scanner, DDoS)
+- Explore malware modules (keylogger, scanner, DDoS, etc)
 - Monitor traffic using Wireshark
 - Ensure complete ethical containment in a virtual lab
 
@@ -25,12 +25,11 @@ This project simulates a **custom botnet** in a secure and fully isolated Virtua
 
 | Component       | Technology              |
 |----------------|--------------------------|
-| Bots           | Python (requests, subprocess) |
-| C2 Server      | Flask + SQLite           |
-| Target Server  | Ubuntu + Flask           |
-| Persistence    | Cronjobs (Linux), Startup folder (Windows) |
+| Bots           | Python                   |
+| C2 Server      | Flask                    |
+| Target Server  | Ubuntu + HTML           |
 | Monitoring     | Wireshark                |
-| VMs            | VirtualBox (host-only)   |
+| VMs            | VirtualBox/VMWare (host-only)   |
 
 ---
 
