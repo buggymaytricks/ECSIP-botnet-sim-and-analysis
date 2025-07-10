@@ -8,8 +8,6 @@ class AccurateScanner:
         self.lock=threading.Lock()
         self.scan_results = {}  # Map IP → list of {'port', 'service'}
         
-    # removed webhook part and sending data to discord
-        
     def host_found(self,ip):
         with self.lock:
             if ip not in self.hosts and self.verify_host(ip):

