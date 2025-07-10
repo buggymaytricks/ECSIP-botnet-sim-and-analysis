@@ -6,3 +6,4 @@ bot/__pycache__/
 *.log
 
 *.json
+c2_server/static/uploads

@@ -81,7 +81,11 @@
                     <a href="#paid-courses" class="nav-link text-gray-700 hover:text-blue-500 px-3 py-2 text-sm font-medium">Paid Courses</a>
                     <a href="#about" class="nav-link text-gray-700 hover:text-blue-500 px-3 py-2 text-sm font-medium">About Us</a>
                     <a href="#contact" class="nav-link text-gray-700 hover:text-blue-500 px-3 py-2 text-sm font-medium">Contact</a>
-                    <a href="#free-courses" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300 transform hover:scale-105">Start Learning</a>
+                    {% if current_user.is_authenticated %}
+                        <a href="/dashboard" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300 transform hover:scale-105">Dashboard</a>
+                    {% else %}
+                        <a href="/login" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300 transform hover:scale-105">Login</a>
+                    {% endif %}
                 </div>
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-900 focus:outline-none">

