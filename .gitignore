@@ -1,7 +1,9 @@
 # Ignore compiled Python files
 *.pyc
 bot/__pycache__/
-
+bot/build/*
+bot/dist/*
+bot.spec
 # Ignore log files
 *.log
 
