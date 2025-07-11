@@ -27,7 +27,7 @@ This project simulates a **custom botnet** in a secure and fully isolated Virtua
 |----------------|--------------------------|
 | Bots           | Python                   |
 | C2 Server      | Flask                    |
-| Target Server  | Ubuntu + HTML           |
+| Target Server  | Ubuntu + Flask           |
 | Monitoring     | Wireshark                |
 | VMs            | VirtualBox/VMWare/VPN   |
 
@@ -39,6 +39,9 @@ This project simulates a **custom botnet** in a secure and fully isolated Virtua
 modular-botnet-simulation/
 ├── bot/                # Linux and Windows bot clients
 │   ├── bot.py
+│   ├── bot.exe         # Windows binary file for bot
+│   ├── bot             # Linux binary file for bot
+│   ├── wordlist.txt    # Test wordlist for bruteforce attack on Test Website
 │   ├── <all_modules>.py
 │   └── requirements.txt
 ├── c2_server/           # Flask-based C2 interface
@@ -63,8 +66,6 @@ modular-botnet-simulation/
 
 ---
 
----
-
 ## 🚀 How to Run
 
 ### 1. Set Up the Virtual Lab
@@ -75,14 +76,14 @@ modular-botnet-simulation/
   - Windows VM (optional Windows bot)
   - Ubuntu server (target)
 
-Make sure all the VMs are interconnected
+Make sure all virtual machines are on the same local area network (LAN).
 
 ### 2. On kali Linux (C2)
 ```bash
 git clone https://github.com/buggymaytricks/ECSIP-botnet-sim-and-analysis.git
 cd ECSIP-botnet-sim-and-analysis
 cd c2_server
-pip3 install requirements.txt
+pip3 install -r requirements.txt
 python3 server.py
 ```
 
@@ -110,12 +111,14 @@ Run the bot.exe file
   - `ip.addr == <bot-ip>`
 - Observe command traffic and DDoS flood patterns
 
-## 📸 Screenshots (Add these) IN PROGRESS
-
-- C2 Dashboard interface with bots listed
-- Terminal output from bots (e.g., `whoami`, `uname`)
-- Wireshark HTTP polling traffic
-- Target server logs during simulated attack
+---
+## 📸 Screenshots
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=1bknS9FmQbVhIeekbxAMuIQnWVjK0pSih" width="200"/>
+  <img src="https://drive.google.com/uc?export=view&id=1I5RtTPza4Cp6XEOOO8RUnfY68FF0dvGZ" width="200"/>
+  <img src="https://drive.google.com/uc?export=view&id=1LHzVpx3VslSSypq079y0wGhzuSE4Utmt" width="200"/>
+  <img src="https://drive.google.com/uc?export=view&id=1tUHEIjn0Whsn-kE1ZWzXNMs47Obaye_j" width="200"/>
+</p>
 
 ---
 
