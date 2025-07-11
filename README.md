@@ -1,4 +1,4 @@
-# 🕷️ Modular Botnet Simulation
+# 🕷️ Modular Botnet Simulation and Analysis
 
 This project simulates a **custom botnet** in a secure and fully isolated VirtualBox environment. It includes:
 
