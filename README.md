@@ -1,4 +1,4 @@
-# 🕷️ Modular Botnet Simulation in a Virtual Lab
+# 🕷️ Modular Botnet Simulation
 
 This project simulates a **custom botnet** in a secure and fully isolated VirtualBox environment. It includes:
 
@@ -29,7 +29,7 @@ This project simulates a **custom botnet** in a secure and fully isolated Virtua
 | C2 Server      | Flask                    |
 | Target Server  | Ubuntu + HTML           |
 | Monitoring     | Wireshark                |
-| VMs            | VirtualBox/VMWare (host-only)   |
+| VMs            | VirtualBox/VMWare/VPN   |
 
 ---
 
@@ -57,8 +57,8 @@ modular-botnet-simulation/
 - `DoS`: HTTP flood on target server
 - `net_scan`: Scans the network in which the bot is connected and sends the hosts that are up. (Not accurate)
 - `port_scan`: Scans common ports on hosts that are up
-- `brute_force`: Can perform bruteforce operations on SSH/FTP/HTTP
-- `stealer`: Steals known credentials from Linux-(Fails to steal browser creds), on Windows only steals browser creds only for chromium based browserss
+- `brute_force`: Can perform bruteforce operations on SSH/FTP/HTTP-LOGIN
+- `stealer`: Steals known secrets/credentials from Linux-(Fails to steal browser creds), on Windows only steals browser creds (only for chromium based browsers)
 - `spyware`: Gets clipboard as well as captures screenshots
 
 ---
@@ -68,40 +68,41 @@ modular-botnet-simulation/
 ## 🚀 How to Run
 
 ### 1. Set Up the Virtual Lab
-- Configure host-only network in Virtual Environment
+- Configure Virtual Environment using Virtualization or a VPN
 - Create VMs for:
   - Kali Linux (C2)
   - Debian/Ubuntu (Linux bots)
   - Windows VM (optional Windows bot)
   - Ubuntu server (target)
 
-### 2. On kali
+Make sure all the VMs are interconnected
+
+### 2. On kali Linux (C2)
 ```bash
 git clone https://github.com/buggymaytricks/ECSIP-botnet-sim-and-analysis.git
 cd ECSIP-botnet-sim-and-analysis
 cd c2_server
 pip3 install requirements.txt
 python3 server.py
-# In other terminal
-nano bot/bot.py
-# Edit the C2_URL and change the ip to your servers ip
-# Copy the complete bot folder in the bot machines
 ```
+
+Now you can send the binaries on the desired VMs
 
 ### 3. On Windows Bot
 ```
-python3 bot.py
+Run the bot.exe file
+#It will ask for the servers IP enter the IP and hit enter
 ```
 
 ### 4. On Linux Bot
 ```bash
-cd bot/
-python3 bot.py
+./bot
+#It will ask for the servers IP enter the IP and hit enter
 ```
 
 ### 5. Use C2 Dashboard
 - Access dashboard via browser (`http://<C2-IP>:5000`)
-- View connected bots, send commands, run modules and monitor responses
+- View connected bots, run modules and monitor responses
 
 ### 6. Analyze Traffic (Wireshark) IN PROGRESS
 - Filter packets by IP or protocol:
